@@ -2,6 +2,8 @@ package fr.slowStripPlanner.entity;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
+
 @Entity
 @Table(name = "parcours")
 public class Parcours {
@@ -16,10 +18,17 @@ public class Parcours {
     private String image;
     @Column
     private Date dateDepart;
-    @Column
-    private Date dateFin;
+
     @Column
     private int nombreJour;
+    @OneToMany(mappedBy = "parcours", fetch = FetchType.LAZY)
+    private List<Balise> balises;
+    @ManyToOne
+    private Profil profil;
+    @OneToOne
+    private Preference preference;
+    @ManyToOne
+    private Locomotion locomotion;
 
     public Parcours() {
     }
@@ -64,13 +73,9 @@ public class Parcours {
         this.dateDepart = dateDepart;
     }
 
-    public Date getDateFin() {
-        return dateFin;
-    }
 
-    public void setDateFin(Date dateFin) {
-        this.dateFin = dateFin;
-    }
+
+
 
     public int getNombreJour() {
         return nombreJour;
@@ -88,7 +93,6 @@ public class Parcours {
                 ", description='" + description + '\'' +
                 ", image='" + image + '\'' +
                 ", dateDepart=" + dateDepart +
-                ", dateFin=" + dateFin +
                 ", nombreJour=" + nombreJour +
                 '}';
     }

@@ -10,5 +10,9 @@ public class Preference {
     private Long preference_id;
     @Column
     private int kilometrageEtapeMoyenne;
+   @ManyToOne
+   private Profil profil;
+   @OneToOne
+   private Parcours parcours;
 
 }

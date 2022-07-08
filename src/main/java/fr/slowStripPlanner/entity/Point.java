@@ -12,7 +12,8 @@ public class Point {
     private String Longitude;
     @Column
     private String Latitude;
-
+    @OneToOne
+    private Balise balise;
     public Point() {
     }
 

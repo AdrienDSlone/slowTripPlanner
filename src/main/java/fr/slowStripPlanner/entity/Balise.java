@@ -16,8 +16,10 @@ public class Balise {
     private Double distance;
     @Column
     private boolean estVerouille;
+    @ManyToOne
     private Parcours parcours;
-    private DetailsBalise detailsBalise;
+
+    @OneToOne
     private Point point;
 
     public Balise() {
@@ -71,13 +73,9 @@ public class Balise {
         this.parcours = parcours;
     }
 
-    public DetailsBalise getDetailsBalise() {
-        return detailsBalise;
-    }
 
-    public void setDetailsBalise(DetailsBalise detailsBalise) {
-        this.detailsBalise = detailsBalise;
-    }
+
+
 
     public Point getPoint() {
         return point;
@@ -96,7 +94,6 @@ public class Balise {
                 ", distance=" + distance +
                 ", estVerouille=" + estVerouille +
                 ", parcours=" + parcours +
-                ", detailsBalise=" + detailsBalise +
                 ", point=" + point +
                 '}';
     }

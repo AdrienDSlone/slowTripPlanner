@@ -1,6 +1,7 @@
 package fr.slowStripPlanner.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "profil")
@@ -12,6 +13,12 @@ public class Profil {
     private String pseudo;
     @Column
     private String photo_profil;
+    @Column
+    private String devise;
+    @OneToMany
+    private List<Parcours> parcours;
+    @OneToMany
+    private List<Preference> preferences;
 
     public Profil() {
     }
