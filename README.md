@@ -3,6 +3,6 @@
 ## Présentation de l'équipe
 
 - Mariam Cisse
-- Jérome Denizard
+- Jérôme Denizart
 - Adrien Marceau
 - Nicolas Simon
